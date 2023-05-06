@@ -1,0 +1,7 @@
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.csproj.AssemblyReference.cache
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.AssemblyInfoInputs.cache
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.AssemblyInfo.cs
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.csproj.CoreCompileInputs.cache
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Master\source\repos\Online Examination System\exam.PL\obj\Debug\net6.0\exam.PL.MvcApplicationPartsAssemblyInfo.cs

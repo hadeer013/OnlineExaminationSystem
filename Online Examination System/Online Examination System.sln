@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam.PL", "exam.PL\exam.PL.csproj", "{EFB2A0AA-222D-4928-A8D7-6C998AFA8FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam.BLL", "exam.BLL\exam.BLL.csproj", "{E48E95A0-7EE7-4EAB-BB41-2DF4CBB003D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam.DAL", "exam.DAL\exam.DAL.csproj", "{65834257-9524-43F0-BDF9-9E9F16D3332E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFB2A0AA-222D-4928-A8D7-6C998AFA8FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB2A0AA-222D-4928-A8D7-6C998AFA8FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB2A0AA-222D-4928-A8D7-6C998AFA8FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB2A0AA-222D-4928-A8D7-6C998AFA8FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48E95A0-7EE7-4EAB-BB41-2DF4CBB003D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48E95A0-7EE7-4EAB-BB41-2DF4CBB003D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48E95A0-7EE7-4EAB-BB41-2DF4CBB003D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48E95A0-7EE7-4EAB-BB41-2DF4CBB003D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65834257-9524-43F0-BDF9-9E9F16D3332E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65834257-9524-43F0-BDF9-9E9F16D3332E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65834257-9524-43F0-BDF9-9E9F16D3332E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65834257-9524-43F0-BDF9-9E9F16D3332E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00F9AC8F-5E5B-4412-A2EA-A78799015750}
+	EndGlobalSection
+EndGlobal

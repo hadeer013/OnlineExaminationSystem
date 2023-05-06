@@ -1,0 +1,15 @@
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.csproj.AssemblyReference.cache
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.AssemblyInfoInputs.cache
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.AssemblyInfo.cs
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\bin\Debug\net6.0\exam.BLL.deps.json
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\bin\Debug\net6.0\exam.BLL.dll
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\bin\Debug\net6.0\exam.BLL.pdb
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\bin\Debug\net6.0\exam.DAL.dll
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\bin\Debug\net6.0\exam.DAL.pdb
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.csproj.CopyComplete
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.dll
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\refint\exam.BLL.dll
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\exam.BLL.pdb
+C:\Users\Master\source\repos\Online Examination System\exam.BLL\obj\Debug\net6.0\ref\exam.BLL.dll
