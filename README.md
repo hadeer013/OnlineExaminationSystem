@@ -19,15 +19,15 @@ E-Exam is a System for students to get their exams online. The admin is responsi
 
 ## Professor
 
-1. Adding and Editing Chapters for each Subject that he teaches and detect the number of questions of each Chapter 
-2. Organizing the structure of the exam.
+ 1. Adding and Editing Chapters for each Subject that he teaches and detect the number of questions of each Chapter 
+ 2. Organizing the structure of the exam.
  3. Determine the allowed time for finishing the exam.
  4. Adding and Editing Questions and Identify The Correct answer, and those Questions should be published for the students as a Questions Bank 
  5. Show The Results of the Students for his Subjects.
 
 ## Student
 
-1. Sign Up and Select his Level and Department.
+ 1. Sign Up and Select his Level and Department.
  2. Sign In and Select the Subject to start his Exam
  3. Finish The Exam, Submit it and show the Result and the Previous Exams' Results.
 
@@ -36,9 +36,9 @@ E-Exam is a System for students to get their exams online. The admin is responsi
 1. The types of Question are MCQ and True & False. 
 2. The Professor specifies how many questions that the Exam must have. 
 3. The Professor specifies how many questions included from each chapter that the Exam must have.
- 4. The Questions are partitioned into Three Categories, A, B & C depending on the Difficulty Level 
- 5. The Professor Specifies number of Questions of each Category from each Chapter of each type
-  Ex:  3 Questions MCQ of Category A from Chapter 1, 
+4. The Questions are partitioned into Three Categories, A, B & C depending on the Difficulty Level 
+5. The Professor Specifies number of Questions of each Category from each Chapter of each type
+   Ex:  3 Questions MCQ of Category A from Chapter 1, 
          4 Questions MCQ of Category B from Chapter 1, 
          4 Questions MCQ of Category C from Chapter 1,
          5 Questions T&F of Category A from Chapter 1, 
