@@ -1,6 +1,7 @@
 ﻿using exam.DAL.Entities.ProfessorEntities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,12 @@ namespace exam.DAL.Entities
         public Professor? Professor { get; set; }
         public ICollection<Chapter>? Chapters { get; set; }
 
-
+        [Required]
         public int LevelId { get; set; }
         [ForeignKey(nameof(LevelId))]
         public Level? Level { get; set; }
 
-
+        [Required]
         public int DepartmentId { get; set; }
         [ForeignKey(nameof(DepartmentId))]
         public Department? Department { get; set; }

@@ -15,7 +15,7 @@ namespace exam.BLL.Specifications.QuestionsSpecifications
         public QuestionSpec(QuestionParam questionParams)
           : base(p => ((questionParams.QustionDifficulty==null) || (questionParams.QustionDifficulty==p.QuestionDifficulty))
           &&((questionParams.QuestionTypes == null) || (questionParams.QuestionTypes == p.QuestionType))
-          &&(p.Chapter.SubjectId==questionParams.SubjectId) &&((questionParams.ChapterId == null) || p.ChapterId== questionParams.ChapterId)
+          &&((questionParams.ChapterId == null) || p.ChapterId== questionParams.ChapterId)
                  )
         {
             AddInclude(q => q.Chapter);

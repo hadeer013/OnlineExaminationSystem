@@ -1,7 +1,6 @@
 ﻿namespace exam.PL.Dtos.QuestionDtos
 {
-    public class OpenEndedDto:QustionDto
+    public class OpenEndedDto: QuestionDto
     {
-        public string? Answer { get; set; }
     }
 }

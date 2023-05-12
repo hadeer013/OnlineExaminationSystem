@@ -9,7 +9,6 @@ namespace exam.DAL.Entities
 {
     public class ApplicationUser:IdentityUser
     {
-        public string? SSN { get; set; }
         public string? Address { get; set; }
     }
 }

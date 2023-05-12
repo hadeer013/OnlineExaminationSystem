@@ -20,10 +20,11 @@ namespace exam.BLL.Repositories
             this.context = context;
         }
 
-        public async Task<int> Add(T type)
+        public async Task<T> Add(T type)
         {
-            context.Set<T>().Add(type);
-            return await context.SaveChangesAsync();
+            var result= context.Set<T>().Add(type);
+             await context.SaveChangesAsync();
+            return result.Entity;
         }
 
         public async Task<int> Delete(T type)
@@ -42,10 +43,12 @@ namespace exam.BLL.Repositories
           return await context.Set<T>().FindAsync(id);
         }
         
-        public async Task<int> Update(T type)
+        public async Task<T> Update(T type)
         {
-            context.Update(type);
-            return await context.SaveChangesAsync();
+            var result= context.Update(type);
+             await context.SaveChangesAsync();
+            return result.Entity;
+
         }
 
         public async Task<IReadOnlyList<T>> GetAllWithSpec(ISpecification<T> spec)

@@ -1,7 +1,7 @@
 ﻿namespace exam.PL.Dtos.QuestionDtos
 {
-    public class TrueFalseQuestionDto: QustionDto
+    public class TrueFalseQuestionDto: QuestionDto
     {
-        public bool CorrectAnswer { get; set; }
+        public bool Answer { get; set; }
     }
 }

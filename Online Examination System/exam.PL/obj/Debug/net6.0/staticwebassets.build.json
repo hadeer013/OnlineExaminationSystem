@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "EWgkKe5nxEtl3BHg5WvgyPeX0Ykufro5cikK5GJxBlA=",
+  "Source": "exam.PL",
+  "BasePath": "_content/exam.PL",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "exam.PL\\wwwroot",
+      "Source": "exam.PL",
+      "ContentRoot": "C:\\Users\\smc\\source\\repos\\Online Examination System\\exam.PL\\wwwroot\\",
+      "BasePath": "_content/exam.PL",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

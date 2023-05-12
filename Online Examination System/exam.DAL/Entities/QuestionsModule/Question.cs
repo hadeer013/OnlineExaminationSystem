@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exam.DAL.Entities.ExamEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace exam.DAL.Entities.QuestionsModule
 
         [ForeignKey(nameof(ChapterId))]
         public Chapter? Chapter { get; set; }
+        public IEnumerable<StudentExamCopy> StudentExamCopies { get; set; }
     }
 }

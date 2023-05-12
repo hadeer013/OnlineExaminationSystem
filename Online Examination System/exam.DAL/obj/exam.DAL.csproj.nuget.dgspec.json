@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Master\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj": {}
+    "C:\\Users\\smc\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Master\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj": {
+    "C:\\Users\\smc\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Master\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\smc\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj",
         "projectName": "exam.DAL",
-        "projectPath": "C:\\Users\\Master\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj",
-        "packagesPath": "C:\\Users\\Master\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Master\\source\\repos\\Online Examination System\\exam.DAL\\obj\\",
+        "projectPath": "C:\\Users\\smc\\source\\repos\\Online Examination System\\exam.DAL\\exam.DAL.csproj",
+        "packagesPath": "C:\\Users\\smc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\smc\\source\\repos\\Online Examination System\\exam.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Master\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\smc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +43,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.15, )"
             }
           },
           "imports": [
@@ -61,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

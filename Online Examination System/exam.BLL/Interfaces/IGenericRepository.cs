@@ -10,8 +10,8 @@ namespace exam.BLL.Interfaces
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {
-        Task<int> Add(T type);
-        Task<int> Update(T type);
+        Task<T> Add(T type);
+        Task<T> Update(T type);
         Task<int> Delete(T type);
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);

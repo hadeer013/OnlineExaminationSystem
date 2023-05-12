@@ -2,7 +2,7 @@
 
 namespace exam.PL.Helper
 {
-    public class Pagination<T> where T : BaseEntity
+    public class Pagination<T> where T : class
     {
         public Pagination(int pageIndex, int pageSize, int count, IReadOnlyList<T> data)
         {

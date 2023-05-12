@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace exam.DAL.Entities
 {
     [Table("Admin")]
-    public class Admin:ApplicationUser
+    public class Admin: ApplicationUser
     {
 
     }

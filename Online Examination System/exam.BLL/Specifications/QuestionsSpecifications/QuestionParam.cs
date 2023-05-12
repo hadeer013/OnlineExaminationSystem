@@ -12,7 +12,6 @@ namespace exam.BLL.Specifications.QuestionsSpecifications
     public class QuestionParam: BaseFilterationParams
     {
         [Required]
-        public int SubjectId { get; set; }
         public int? ChapterId { get; set; }
         public QuestionTypes? QuestionTypes { get; set; }
         public QustionDifficulty? QustionDifficulty { get; set; }

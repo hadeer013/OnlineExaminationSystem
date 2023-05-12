@@ -9,8 +9,9 @@ namespace exam.DAL.Entities.QuestionsModule
     public class MCQquestion:Question
     {
         public override QuestionTypes QuestionType { get; } = QuestionTypes.MCQ;
-        public List<string> Options { get; set; } = new List<string>();
-       
-        
+        public string Option1 { get; set; }
+        public string Option2 { get; set; }
+        public string Option3 { get; set; }
+        public string Option4 { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using exam.BLL.Specifications;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace Talabat.BLL.Specification
         public int Take { get; set; }
         public int Skip { get; set; }
         public bool IsPaginated { get; set; }
+        public List<Func<IQueryable<T>, IIncludableQueryable<T, object>>> IncludeThenIncludes { get; set; } 
+            = new List<Func<IQueryable<T>, IIncludableQueryable<T, object>>>();
 
         public BaseSpecification()
         {
@@ -32,6 +35,8 @@ namespace Talabat.BLL.Specification
             
             Includes.Add(Include);
         }
+        public void AddThenInclude(Func<IQueryable<T>, IIncludableQueryable<T, object>> Theninclude)
+            => this.IncludeThenIncludes.Add(Theninclude);
         public void AddOrderBy(Expression<Func<T, object>> orderby)
         {
             this.OrderBy = orderby;

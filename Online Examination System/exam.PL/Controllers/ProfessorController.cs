@@ -28,10 +28,11 @@ namespace exam.PL.Controllers
 
         [Authorize(Roles ="Admin")]
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Professor>>> GetAllProfessors()
+        public async Task<ActionResult<IReadOnlyList<BaseApplicationUserDto>>> GetAllProfessors()
         {
             var result = await professorRepo.GetAllAsync();
-            return Ok(result);
+            var mapped = mapper.Map<IReadOnlyList<BaseApplicationUserDto>>(result);
+            return Ok(mapped);
         }
         [HttpGet("{Id}")]
         public async Task<ActionResult<BaseApplicationUserDto>> GetProfessorById(string Id)
@@ -42,13 +43,5 @@ namespace exam.PL.Controllers
             return Ok(mapped);
         }
 
-        [HttpPost("requestToSignUp")]
-        public async Task<ActionResult<BaseApplicationUserDto>> RequestToSignUp(SignUpDto signUpDto)
-        {
-            var mapped = mapper.Map<ProfessorSignUpRequests>(signUpDto);
-            await profSignupRequestRepo.Add(mapped);
-            var obj = mapper.Map<BaseApplicationUserDto>(signUpDto);
-            return Ok(obj);
-        }
     }
 }

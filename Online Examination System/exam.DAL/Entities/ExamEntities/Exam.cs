@@ -1,29 +1,29 @@
 ﻿using exam.DAL.Entities.ProfessorEntities;
+using exam.DAL.Entities.QuestionsModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace exam.DAL.Entities.ExamEntities
 {
     public class Exam:BaseEntity
     {
+        public string? ExamName { get; set; }
+        public ExamType ExamType { get; set; }
+        public DateTime ExamStart { get; set; }
+        public DateTime ExamEnd { get; set; }
         public int Duration { get; set; }
-        public string? ProfessorId { get; set; }
+        public float TotalExamPoints { get; set; }
+        public ICollection<QuestionTypePoint> QuestionTypePoints { get; set; }
 
-        [ForeignKey(nameof(ProfessorId))]
-        public Professor? Professor { get; set; }
+        public string? InitiatorId { get; set; }
 
-        public int LevelId { get; set; }
-        [ForeignKey(nameof(LevelId))]
-        public Level? Level { get; set; }
-
-
-        public int DepartmentId { get; set; }
-        [ForeignKey(nameof(DepartmentId))]
-        public Department? Department { get; set; }
+        [ForeignKey(nameof(InitiatorId))]
+        public ApplicationUser? Initiator { get; set; }
 
         public int SubjectId { get; set; }
         [ForeignKey(nameof(SubjectId))]

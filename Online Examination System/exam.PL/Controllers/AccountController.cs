@@ -23,9 +23,11 @@ namespace exam.PL.Controllers
         private readonly ITokenService tokenService;
         private readonly IMapper mapper;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly IGenericRepository<ProfessorSignUpRequests> profSignupRequestRepo;
 
         public AccountController(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager
-            ,IGenericRepository<ProfessorSignUpRequests> ProfSignupReqRepo,ITokenService tokenService,IMapper mapper,RoleManager<IdentityRole> roleManager)
+            ,IGenericRepository<ProfessorSignUpRequests> ProfSignupReqRepo,ITokenService tokenService,
+            IMapper mapper,RoleManager<IdentityRole> roleManager, IGenericRepository<ProfessorSignUpRequests> profSignupRequestRepo)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -33,6 +35,7 @@ namespace exam.PL.Controllers
             this.tokenService = tokenService;
             this.mapper = mapper;
             this.roleManager = roleManager;
+            this.profSignupRequestRepo = profSignupRequestRepo;
         }
 
         [HttpPost("login")]
@@ -57,6 +60,14 @@ namespace exam.PL.Controllers
             return Unauthorized();
         }
 
+        [HttpPost("requestToSignUp")]
+        public async Task<ActionResult<BaseApplicationUserDto>> RequestToSignUp(SignUpDto signUpDto)
+        {
+            var mapped = mapper.Map<ProfessorSignUpRequests>(signUpDto);
+            await profSignupRequestRepo.Add(mapped);
+            var obj = mapper.Map<BaseApplicationUserDto>(signUpDto);
+            return Ok(obj);
+        }
 
         [Authorize(Roles ="Admin")]
         [HttpGet("AllSignupRequests")]
@@ -68,55 +79,106 @@ namespace exam.PL.Controllers
             return Ok(mapped);
         }
 
-
-        [HttpGet("approveSignUpRequest/{Id}")]
-        public async Task<ActionResult> ApproveSignUpRequest(int Id)
+        [Authorize(Roles = "Admin")]
+        [HttpPost("approveSignUpRequest")]
+        public async Task<ActionResult> ApproveSignUpRequest(ApproveSignUpRequestDto approveRequest)
         {
-            var request=await profSignupReqRepo.GetByIdAsync(Id);
+            var request=await profSignupReqRepo.GetByIdAsync(approveRequest.RequestId);
             if (request == null) return NotFound();
-            request.IsApproved = true;
-            await profSignupReqRepo.Update(request);
-            if (CheckEmailExistsAsync(request.Email).Result.Value) return BadRequest();
-                //return new BadRequestObjectResult(new ApiValidationErrorResponse() { Errors = new[] { "Email Address already is in Use !!" } });
-            var password = PasswordGeneration.Generator();
-            var prof = new Professor()
+            request.IsApproved = approveRequest.IsApproved;
+            
+            if (approveRequest.IsApproved)
+            {
+                await profSignupReqRepo.Update(request);
+                if (CheckEmailExistsAsync(request.Email).Result.Value) return BadRequest();
+                
+                var prof = new Professor()
+                {
+                    Email = request.Email,
+                    Address = request.Address,
+                    PhoneNumber = request.PhoneNumber,
+                    UserName = request.UserName
+                };
+                var result = await userManager.CreateAsync(prof, request.Password);
+                if (result.Succeeded)
+                {
+                    var email = new Email()
+                    {
+                        Subject = "Online Examination System < SignUp Request Approval >",
+                        Body = $"Your Request has been approved.Now,you can login to the system",
+                        To = prof.Email
+                    };
+                    EmailSettings.SendEmail(email);
+                    var role = await roleManager.FindByNameAsync("Professor");
+                    var added = await userManager.AddToRoleAsync(prof, role.Name);
+                    if (added.Succeeded)
+                    {
+                        var user = new BaseUserDto()
+                        {
+                            Email = prof.Email,
+                            UserName = prof.UserName
+                        };
+                        return Ok(user);
+                    }
+                }
+                return BadRequest(result.Errors);
+            }
+            await profSignupReqRepo.Delete(request);
+            var declinedemail = new Email()
+            {
+                Subject = "Online Examination System < SignUp Request >",
+                Body = $"Your Request has been declined.Please make sure your data is correct and try again!!",
+                To = request.Email
+            };
+            EmailSettings.SendEmail(declinedemail);
+            var userdec = new BaseUserDto()
             {
                 Email = request.Email,
-                Address = request.Address,
-                PhoneNumber = request.PhoneNumber,
-                SSN = request.SSN,
                 UserName = request.UserName
             };
-            var result = await userManager.CreateAsync(prof, password);
-            if(result.Succeeded)
+            return Ok(userdec);
+        }
+
+        [HttpPost("studentSignup")]
+        public async Task<ActionResult> StudentSignUp(StudentSignupDto studentSignupDto)
+        {
+            if (CheckEmailExistsAsync(studentSignupDto.Email).Result.Value) return BadRequest();
+            var Student = new Student()
             {
-                var email = new Email()
-                {
-                    Subject = "Online Examination System < SignUp Request Approval >",
-                    Body = $"Please use this password in login process : {password}",
-                    To = prof.Email
-                };
-                EmailSettings.SendEmail(email);
-                var role = await roleManager.FindByNameAsync("Professor");
-                var added = await userManager.AddToRoleAsync(prof, role.Name);
+                UserName = studentSignupDto.userName,
+                Email = studentSignupDto.Email,
+                PhoneNumber = studentSignupDto.PhoneNumber,
+                Code = studentSignupDto.Code,
+                Address = studentSignupDto.Address,
+                DepartmentId = studentSignupDto.DepartmentId,
+                LevelId = studentSignupDto.LevelId,
+            };
+
+            var result = await userManager.CreateAsync(Student, studentSignupDto.Password);
+            if (result.Succeeded)
+            {
+                var role = await roleManager.FindByNameAsync("Student");
+                var added = await userManager.AddToRoleAsync(Student, role.Name);
                 if (added.Succeeded)
                 {
                     var user = new BaseUserDto()
                     {
-                        Email = prof.Email,
-                        UserName = prof.UserName
+                        Email = Student.Email,
+                        UserName = Student.UserName
                     };
                     return Ok(user);
                 }
             }
             return BadRequest(result.Errors);
         }
-       
-       
+
+
         [HttpGet("emailexists")]
         public async Task<ActionResult<bool>> CheckEmailExistsAsync([FromQuery] string email)
         {
             return await userManager.FindByEmailAsync(email) != null;
+
         }
+
     }
 }

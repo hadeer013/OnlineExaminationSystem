@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,6 +12,7 @@ namespace exam.BLL.Specifications
     {
         public Expression<Func<T, bool>> Criteria { get; set; }//where
         public List<Expression<Func<T, object>>> Includes { get; set; }//include
+        public List<Func<IQueryable<T>, IIncludableQueryable<T, object>>> IncludeThenIncludes { get; set; }//theninclude
 
         public Expression<Func<T, object>> OrderBy { get; set; }
         public Expression<Func<T, object>> OrderByDesc { get; set; }
